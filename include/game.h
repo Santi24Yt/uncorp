@@ -1,4 +1,9 @@
+#ifndef STRUCTURES_H
+
+#define STRUCTURES_H
+
 #include <curses.h>
+#include <time.h>
 
 #define DEBUG_LEVEL 3
 
@@ -23,3 +28,5 @@
 #define debug3(fmt, ...) { \
   if (DEBUG_LEVEL >= 3) { debug1(fmt, ##__VA_ARGS__); } \
 }
+
+#endif
