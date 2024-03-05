@@ -1,0 +1,7 @@
+-lcurses
+-lm
+-I./include/
+-std=c89
+-Wall
+-Wextra
+-Werror

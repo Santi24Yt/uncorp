@@ -1,0 +1,13 @@
+(N)Curses game for Acerola Jam 0
+
+Compile and run with
+$ make
+
+Compile
+$ make dev
+
+Run
+$ make run
+
+
+(for more things read makefile)
