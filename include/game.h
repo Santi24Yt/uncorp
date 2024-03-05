@@ -4,6 +4,9 @@
 
 #include <curses.h>
 #include <time.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
 
 #define DEBUG_LEVEL 3
 
@@ -28,5 +31,21 @@
 #define debug3(fmt, ...) { \
   if (DEBUG_LEVEL >= 3) { debug1(fmt, ##__VA_ARGS__); } \
 }
+
+#define SCREEN_W 121
+#define SCREEN_H 41
+
+int max(int a, int b);
+
+
+/* engine.c functions */
+void setup();
+void close();
+void waitforsize();
+void loop();
+
+
+/* text.c functions */
+void printcenter(WINDOW* win, char* fmt, ...);
 
 #endif

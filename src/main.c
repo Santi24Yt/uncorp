@@ -2,6 +2,10 @@
 
 int main()
 {
-  printf("Hello world\n");
+  setup();
+
+  loop();
+
+  close();
   return 0;
 }
