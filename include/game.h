@@ -2,6 +2,8 @@
 
 #define STRUCTURES_H
 
+#include <assets.h>
+
 #include <curses.h>
 #include <time.h>
 #include <stdlib.h>

@@ -12,10 +12,10 @@ BINS = ./bin
 DEBUGS = ./debug
 
 # Los comandos que se ejecutan por default al poner solo `make`
-all: createdirs clean compile gitignore run
+all: createdirs clean defassets compile gitignore run
 
 # Comandos que se ejecutan al hacer `make dev`
-dev: createdirs cleanpg lspflags compiledev gitignore
+dev: createdirs cleanpg defassets lspflags compiledev gitignore
 
 # Crear directorio de ejecutables
 bindir:
@@ -53,4 +53,7 @@ lspflags:
 
 # Crear el .gitignore
 gitignore:
-	echo "$(BINS)/*" "$(DEBUGS)/*" | sed "s/\.\///g" | sed "s/ /\n/g" > .gitignore
+	echo "$(BINS)/*" "$(DEBUGS)/*" | sed "s/\.\///g" | sed "s/ /\n/g" > .gitignore && echo "*.dmp" >> .gitignore
+
+defassets:
+	./defineassets.sh
