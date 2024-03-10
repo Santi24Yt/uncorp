@@ -89,6 +89,7 @@ void loop()
   {
     move(0, SCREEN_W-1);
     mvprintw(1,1,"Test dump %d", i);
+    wdrawasset(stdscr, logotitle, 2, 2);
     getmaxyx(stdscr, h, w);
     if (h < SCREEN_H || w < SCREEN_W)
     {

@@ -47,6 +47,10 @@ void waitforsize();
 void loop();
 
 
+/* draw.c functions */
+void wdrawasset(WINDOW* win, char* asset, int y, int x);
+
+
 /* text.c functions */
 void printcenter(WINDOW* win, char* fmt, ...);
 
