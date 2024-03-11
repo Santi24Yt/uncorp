@@ -46,6 +46,7 @@ void close();
 void waitforsize();
 void loop();
 void loadprogr();
+void saveprogr();
 
 
 /* draw.c functions */
@@ -63,6 +64,10 @@ void printcenter(WINDOW* win, char* fmt, ...);
 
 /* titlescreen.c functions */
 int titlescreen();
+
+
+/* labscreen.c functions */
+int labscreen();
 
 
 /* global (? variables */

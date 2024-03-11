@@ -69,9 +69,12 @@ int titlescreen()
 
     focus(wins, wl, wins[cf]);
 
-    mvwprintw(stats, 1, 1, "Aberrations: %d", aberrations);
-    mvwprintw(stats, 2, 1, "Money: %d", money);
-    mvwprintw(stats, 3, 1, "Subjects: %d", subjects);
+    mvwprintw(stats, 2, 2, "                      ");
+    mvwprintw(stats, 2, 2, "Aberrations: %d", aberrations);
+    mvwprintw(stats, 3, 2, "                      ");
+    mvwprintw(stats, 3, 2, "Money: %d", money);
+    mvwprintw(stats, 4, 2, "                      ");
+    mvwprintw(stats, 4, 2, "Subjects: %d", subjects);
 
     ch = getch();
     wrefresh(stats);

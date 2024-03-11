@@ -37,6 +37,9 @@ void setup()
 
 void close()
 {
+
+  saveprogr();
+
   endwin();
   debug1("Window finished");
   remove("screen.dmp");
@@ -102,8 +105,8 @@ void loop()
     }
 
 
-    exitf = titlescreen();
-    
+    exitf = titlescreen()
+      || labscreen();
 
     refresh();
   }
@@ -127,4 +130,16 @@ void loadprogr()
   }
 
   fclose(fp);
+}
+
+void saveprogr()
+{
+  FILE* fp = fopen("gamesave.zzz", "w");
+  
+  if (fp == NULL)
+  {
+    debug1("Can't save progress");
+  } else {
+    fprintf(fp, "%d %d %d", aberrations, money, subjects);
+  }
 }
