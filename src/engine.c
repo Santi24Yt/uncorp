@@ -75,7 +75,7 @@ void waitforsize()
   clear();
   debug2("Correct size confirmed");
   resize_term(SCREEN_H, SCREEN_W);
-  wborder(stdscr, '|', '|', '-', '-', '+', '+', '+', '+');
+  wborder(stdscr, '|', '|', '-', '-', '*', '*', '*', '*');
 }
 
 void loop()
@@ -83,13 +83,10 @@ void loop()
   int h;
   int w;
 
-  int ch = ERR;
-  int i = 0;
-  while(ch != 'q')
+  int exitf = 0;
+  while(!exitf)
   {
     move(0, SCREEN_W-1);
-    mvprintw(1,1,"Test dump %d", i);
-    wdrawasset(stdscr, logotitle, 2, 2);
     getmaxyx(stdscr, h, w);
     if (h < SCREEN_H || w < SCREEN_W)
     {
@@ -102,8 +99,10 @@ void loop()
       remove("screen.dmp");
     }
 
-    i = (i + 1) % 1000000;
+
+    exitf = titlescreen();
+    
+
     refresh();
-    ch = getch();
   }
 }

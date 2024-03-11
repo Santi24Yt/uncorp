@@ -51,7 +51,16 @@ void loop();
 void wdrawasset(WINDOW* win, char* asset, int y, int x);
 
 
+/* windows.c functions */
+WINDOW* spawnwin(int h, int w, int sy, int sx);
+void focus(WINDOW** wins, int wl, WINDOW* f);
+
+
 /* text.c functions */
 void printcenter(WINDOW* win, char* fmt, ...);
+
+
+/* titlescreen.c functions */
+int titlescreen();
 
 #endif

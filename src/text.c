@@ -34,11 +34,12 @@ void printcenter(WINDOW* win, char* fmt, ...)
 
   int ofy = strlen(buf)/w/2;
 
-  int cy = max(0, h/2 + h%2 - ofy);
+  int cy = max(0, h/2 + (h%2 - 1) - ofy);
   int cx = max(0, w/2 - strlen(buf)/2 - w%2);
 
   mvwaddstr(win, cy, cx, buf);
 
   va_end(args);
   free(buf);
+  wrefresh(win);
 }
