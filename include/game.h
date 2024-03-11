@@ -45,6 +45,7 @@ void setup();
 void close();
 void waitforsize();
 void loop();
+void loadprogr();
 
 
 /* draw.c functions */
@@ -62,5 +63,12 @@ void printcenter(WINDOW* win, char* fmt, ...);
 
 /* titlescreen.c functions */
 int titlescreen();
+
+
+/* global (? variables */
+extern int aberrations;
+extern int money;
+extern int subjects;
+
 
 #endif

@@ -2,7 +2,7 @@
 
 int titlescreen()
 {
-  WINDOW* wins[32];
+  WINDOW* wins[3];
   int wl = 0;
 
   wdrawasset(stdscr, houselvl6, 0, 27);
@@ -18,7 +18,6 @@ int titlescreen()
   printcenter(quitb, "Quit - 'q'");
 
   WINDOW* stats = spawnwin(21, 32, 10, 85);
-  printcenter(stats, "test");
 
   int cf = 0;
 
@@ -69,6 +68,10 @@ int titlescreen()
     }
 
     focus(wins, wl, wins[cf]);
+
+    mvwprintw(stats, 1, 1, "Aberrations: %d", aberrations);
+    mvwprintw(stats, 2, 1, "Money: %d", money);
+    mvwprintw(stats, 3, 1, "Subjects: %d", subjects);
 
     ch = getch();
     wrefresh(stats);

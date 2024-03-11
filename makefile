@@ -53,7 +53,7 @@ lspflags:
 
 # Crear el .gitignore
 gitignore:
-	echo "$(BINS)/*" "$(DEBUGS)/*" | sed "s/\.\///g" | sed "s/ /\n/g" > .gitignore && echo "*.dmp" >> .gitignore
+	echo "$(BINS)/*" "$(DEBUGS)/*" | sed "s/\.\///g" | sed "s/ /\n/g" > .gitignore && echo "*.dmp" >> .gitignore && echo "*.zzz" >> .gitignore
 
 defassets:
 	./defineassets.sh

@@ -31,6 +31,8 @@ void setup()
   debug1("Colors initialized");
 
   waitforsize();
+
+  loadprogr();
 }
 
 void close()
@@ -105,4 +107,24 @@ void loop()
 
     refresh();
   }
+}
+
+int aberrations = 0;
+int money = 1000;
+int subjects = 0;
+
+void loadprogr()
+{
+  FILE* fp = fopen("gamesave.zzz", "r");
+  
+  if (fp == NULL)
+  {
+    debug1("Can't load progress");
+    fp = fopen("gamesave.zzz", "w");
+    fprintf(fp, "%d %d %d", aberrations, money, subjects);
+  } else {
+    fscanf(fp, "%d %d %d", &aberrations, &money, &subjects);
+  }
+
+  fclose(fp);
 }
