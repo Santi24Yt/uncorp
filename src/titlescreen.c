@@ -5,7 +5,7 @@ int titlescreen()
   WINDOW* wins[32];
   int wl = 0;
 
-  wdrawasset(stdscr, houselvl4, 5, 27);
+  wdrawasset(stdscr, houselvl6, 0, 27);
 
   wdrawasset(stdscr, logotitle, 2, 2);
 
@@ -50,6 +50,20 @@ int titlescreen()
         }
         break;
 
+      /* enter */
+      case 10:
+      /* space */
+      case 32:
+        if (wins[cf] == quitb)
+        {
+          return 1;
+        }
+        if (wins[cf] == playb)
+        {
+          return 0;
+        }
+        break;
+
       case 'q':
         return 1;
     }
@@ -57,6 +71,7 @@ int titlescreen()
     focus(wins, wl, wins[cf]);
 
     ch = getch();
+    wrefresh(stats);
     refresh();
   }
 
