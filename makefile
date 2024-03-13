@@ -1,7 +1,7 @@
 # Compilador
 CC = gcc
 # Flags del compilador
-CFLAGS = -lcurses -lm -I./include/ -std=c89
+CFLAGS = -lpdcurses -lm -I./include/ -std=c89
 # FLags de desarrollo
 DEVFLAGS = -Wall -Wextra -Werror
 # Archivos fuente
