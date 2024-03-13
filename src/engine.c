@@ -50,6 +50,8 @@ void close()
 
 void waitforsize()
 {
+  resize_term(SCREEN_H, SCREEN_W);
+  
   int h;
   int w;
   getmaxyx(stdscr, h, w); 
