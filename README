@@ -40,6 +40,9 @@ dc: @santi_24   %
 jgs \(__)|    %%
 
 
+Dependencies:
+- pdcurses
+
 Compile and run with
 $ make
 
