@@ -65,9 +65,9 @@ int labscreen()
     switch (ch)
     {
       /* left */
-      case 260:
+      case 60420:
       /* up */
-      case 259: 
+      case 60419: 
         if (cf <= 0)
         {
           cf = wl - 1;
@@ -76,9 +76,9 @@ int labscreen()
         }
         break;
       /* right */
-      case 261:
+      case 60421:
       /* down */
-      case 258:
+      case 60418:
         if (cf >= wl - 1)
         {
           cf = 0;
