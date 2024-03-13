@@ -40,13 +40,25 @@ dc: @santi_24   %
 jgs \(__)|    %%
 
 
+To build from source in windows
+- Install git & git bash
+https://git-scm.com/download/win
+- Check the option to add all utils to path (or at least have mkdir and sed in path)
+- Install MinGW-w64 toolchain via MSYS2
+https://code.visualstudio.com/docs/cpp/config-mingw#_installing-the-mingww64-toolchain
+- With MSYS UCRT64 install pdcurses with
+  $ pacman -S mingw-w64-ucrt-x86_64-pdcurses
+- Install GNU make for windows
+  (either with `pacman -S mingw-w64-ucrt-x86_64-make` or from https://gnuwin32.sourceforge.net/packages/make.htm)
+  make sure to have it in path
+
 Compile and run with
 $ make
 
-Compile
+Compile with
 $ make dev
 
-Run
+Run with
 $ make run
 
 
