@@ -4,7 +4,7 @@
 
 #include <assets.h>
 
-#include <curses.h>
+#include <pdcurses.h>
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
