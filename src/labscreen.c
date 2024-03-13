@@ -51,6 +51,7 @@ int labscreen()
 
   WINDOW* newsubb = spawnwin(5, 22, 33, 60);
   wins[wl++] = newsubb;
+  mvwaddstr(newsubb, 3, 2, "=100 stab +1 subj");
   printcenter(newsubb, "New subject");
 
 
@@ -58,6 +59,8 @@ int labscreen()
   WINDOW* stats = spawnwin(21, 32, 2, 3);
 
   int cf = 0;
+
+  int savei = 0;
 
   int ch = ERR;
   while(1)
@@ -143,10 +146,11 @@ int labscreen()
         }
         if (wins[cf] == newsubb)
         { 
-          if (money < 100)
+          if (money < subjects*100-(subjects/50))
           {
             break;
           }
+          money -= subjects*100-(subjects/50);
           stability = 100;
           subjects++;
         }
@@ -174,12 +178,27 @@ int labscreen()
     mvwprintw(stats, 2, 2, "                      ");
     mvwprintw(stats, 2, 2, "Aberrations: %lld", aberrations);
     mvwprintw(stats, 3, 2, "                      ");
-    mvwprintw(stats, 3, 2, "Money: %lld", money);
-    mvwprintw(stats, 4, 2, "                      ");
-    mvwprintw(stats, 4, 2, "Subjects: %d", subjects);
+    mvwprintw(stats, 3, 2, "Aberration gain: %d/t", daberrations);
+
+    mvwprintw(stats, 5, 2, "                      ");
+    mvwprintw(stats, 5, 2, "Money: %lld", money);
+    mvwprintw(stats, 6, 2, "                      ");
+    mvwprintw(stats, 6, 2, "Money gain: %d/t", (int)(dmoney + aberrations/25));
+
+    mvwprintw(stats, 8, 2, "                      ");
+    mvwprintw(stats, 8, 2, "Subjects: %d", subjects);
+
+    mvwprintw(stats, 10, 2, "                     ");
+    mvwprintw(stats, 10, 2, "House lvl: %d/6", houselvl);
+    
+    mvwprintw(stats, 18, 2, "                     ");
+    mvwprintw(stats, 18, 2, "Endings: %d/3", fendings);
+
 
     mvwprintw(houseb, 3, 2, "                      ");
     mvwprintw(houseb, 3, 2, "-%lld money", (long long)(10000 * pow(10, houselvl)));
+
+    mvwprintw(newsubb, 1, 2, "-%d money", subjects*100-(subjects/50));
 
     mvprintw(SCREEN_H - 4, 2, "                     ");
     mvprintw(SCREEN_H - 4, 2, "Stability: %d", stability);
@@ -199,6 +218,14 @@ int labscreen()
     wrefresh(stats);
     refresh();
     updatestats();
+
+    savei++;
+
+    if (savei == 1000)
+    {
+      saveprogr();
+      savei = 0;
+    }
   }
 
   return 0;

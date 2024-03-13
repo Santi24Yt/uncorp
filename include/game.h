@@ -86,5 +86,7 @@ extern int stability;
 
 extern int houselvl;
 
+extern int fendings;
+
 
 #endif

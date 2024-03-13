@@ -111,6 +111,21 @@ void loop()
     exitf = titlescreen()
       || labscreen();
 
+    switch (exitf-1)
+    {
+      /* overflow ending */
+      case 1:
+        break;
+
+      /* unstability ending */
+      case 2:
+        break;
+
+      /* maxhouse ending */
+      case 3:
+        break;
+    }
+
     refresh();
   }
 }
@@ -126,6 +141,7 @@ int dsubjects = 0;
 long lastupdate;
 int stability = 100;
 int houselvl = 0;
+int fendings;
 
 void loadprogr()
 {
@@ -135,9 +151,9 @@ void loadprogr()
   {
     debug1("Can't load progress");
     fp = fopen("gamesave.zzz", "w");
-    fprintf(fp, "%lld %lld %d %d %d %d %d %d", aberrations, money, subjects, daberrations, dmoney, dsubjects, stability, houselvl);
+    fprintf(fp, "%lld %lld %d %d %d %d %d %d %d", aberrations, money, subjects, daberrations, dmoney, dsubjects, stability, houselvl, fendings);
   } else {
-    fscanf(fp, "%lld %lld %d %d %d %d %d %d", &aberrations, &money, &subjects, &daberrations, &dmoney, &dsubjects, &stability, &houselvl);
+    fscanf(fp, "%lld %lld %d %d %d %d %d %d %d", &aberrations, &money, &subjects, &daberrations, &dmoney, &dsubjects, &stability, &houselvl, &fendings);
   }
 
   lastupdate = time(NULL);
@@ -152,7 +168,7 @@ void saveprogr()
   {
     debug1("Can't save progress");
   } else {
-    fprintf(fp, "%lld %lld %d %d %d %d %d %d", aberrations, money, subjects, daberrations, dmoney, dsubjects, stability, houselvl);
+    fprintf(fp, "%lld %lld %d %d %d %d %d %d %d", aberrations, money, subjects, daberrations, dmoney, dsubjects, stability, houselvl, fendings);
   }
 }
 
