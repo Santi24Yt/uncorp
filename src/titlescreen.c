@@ -106,9 +106,21 @@ int titlescreen()
     mvwprintw(stats, 2, 2, "                      ");
     mvwprintw(stats, 2, 2, "Aberrations: %lld", aberrations);
     mvwprintw(stats, 3, 2, "                      ");
-    mvwprintw(stats, 3, 2, "Money: %lld", money);
-    mvwprintw(stats, 4, 2, "                      ");
-    mvwprintw(stats, 4, 2, "Subjects: %d", subjects);
+    mvwprintw(stats, 3, 2, "Aberration gain: %d/t", daberrations);
+
+    mvwprintw(stats, 5, 2, "                      ");
+    mvwprintw(stats, 5, 2, "Money: %lld", money);
+    mvwprintw(stats, 6, 2, "                      ");
+    mvwprintw(stats, 6, 2, "Money gain: %d/t", (int)(dmoney + aberrations/25));
+
+    mvwprintw(stats, 8, 2, "                      ");
+    mvwprintw(stats, 8, 2, "Subjects: %d", subjects);
+
+    mvwprintw(stats, 10, 2, "                     ");
+    mvwprintw(stats, 10, 2, "House lvl: %d/6", houselvl);
+
+    mvwprintw(stats, 18, 2, "                     ");
+    mvwprintw(stats, 18, 2, "Endings: %d/3", fendings);
 
     ch = getch();
     wrefresh(stats);
