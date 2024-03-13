@@ -47,6 +47,7 @@ void waitforsize();
 void loop();
 void loadprogr();
 void saveprogr();
+void updatestats();
 
 
 /* draw.c functions */
@@ -71,9 +72,19 @@ int labscreen();
 
 
 /* global (? variables */
-extern int aberrations;
-extern int money;
+extern long long aberrations;
+extern long long money;
 extern int subjects;
+
+extern int daberrations;
+extern int dmoney;
+extern int dsubjects;
+
+extern long lastupdate;
+
+extern int stability;
+
+extern int houselvl;
 
 
 #endif

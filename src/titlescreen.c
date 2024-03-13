@@ -2,10 +2,44 @@
 
 int titlescreen()
 {
+  clear();
+
   WINDOW* wins[3];
   int wl = 0;
 
-  wdrawasset(stdscr, houselvl6, 0, 27);
+  wborder(stdscr, '|', '|', '-', '-', '*', '*', '*', '*');
+
+  switch (houselvl)
+  {
+    case 0:
+      wdrawasset(stdscr, houselvl0, SCREEN_H - 11, 27);
+      break;
+
+    case 1:
+      wdrawasset(stdscr, houselvl1, SCREEN_H - 15, 27);
+      break;
+
+    case 2:
+      wdrawasset(stdscr, houselvl2, SCREEN_H - 17, 27);
+      break;
+
+    case 3:
+      wdrawasset(stdscr, houselvl3, SCREEN_H - 28, 27);
+      break;
+
+    case 4:
+      wdrawasset(stdscr, houselvl4, SCREEN_H - 36, 27);
+      break;
+
+    case 5:
+      wdrawasset(stdscr, houselvl5, SCREEN_H - 41, 27);
+      break;
+
+    case 6:
+    default:
+      wdrawasset(stdscr, houselvl6, SCREEN_H - 41, 27);
+      break;
+  }
 
   wdrawasset(stdscr, logotitle, 2, 2);
 
@@ -70,15 +104,16 @@ int titlescreen()
     focus(wins, wl, wins[cf]);
 
     mvwprintw(stats, 2, 2, "                      ");
-    mvwprintw(stats, 2, 2, "Aberrations: %d", aberrations);
+    mvwprintw(stats, 2, 2, "Aberrations: %lld", aberrations);
     mvwprintw(stats, 3, 2, "                      ");
-    mvwprintw(stats, 3, 2, "Money: %d", money);
+    mvwprintw(stats, 3, 2, "Money: %lld", money);
     mvwprintw(stats, 4, 2, "                      ");
     mvwprintw(stats, 4, 2, "Subjects: %d", subjects);
 
     ch = getch();
     wrefresh(stats);
     refresh();
+    updatestats();
   }
 
   return 0;

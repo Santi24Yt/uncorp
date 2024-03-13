@@ -2,6 +2,7 @@
 
 void setup()
 {
+  srand(time(NULL));
   debug2("Initializing screen");
   initscr();
   debug2("Screen initialized");
@@ -112,9 +113,17 @@ void loop()
   }
 }
 
-int aberrations = 0;
-int money = 1000;
+long long aberrations = 0;
+long long money = 1000;
 int subjects = 0;
+
+int daberrations = 0;
+int dmoney = 0;
+int dsubjects = 0;
+
+long lastupdate;
+int stability = 100;
+int houselvl = 0;
 
 void loadprogr()
 {
@@ -124,11 +133,12 @@ void loadprogr()
   {
     debug1("Can't load progress");
     fp = fopen("gamesave.zzz", "w");
-    fprintf(fp, "%d %d %d", aberrations, money, subjects);
+    fprintf(fp, "%lld %lld %d %d %d %d %d %d", aberrations, money, subjects, daberrations, dmoney, dsubjects, stability, houselvl);
   } else {
-    fscanf(fp, "%d %d %d", &aberrations, &money, &subjects);
+    fscanf(fp, "%lld %lld %d %d %d %d %d %d", &aberrations, &money, &subjects, &daberrations, &dmoney, &dsubjects, &stability, &houselvl);
   }
 
+  lastupdate = time(NULL);
   fclose(fp);
 }
 
@@ -140,6 +150,19 @@ void saveprogr()
   {
     debug1("Can't save progress");
   } else {
-    fprintf(fp, "%d %d %d", aberrations, money, subjects);
+    fprintf(fp, "%lld %lld %d %d %d %d %d %d", aberrations, money, subjects, daberrations, dmoney, dsubjects, stability, houselvl);
+  }
+}
+
+void updatestats()
+{
+  long newupdate = time(NULL);
+  int delta = newupdate - lastupdate;
+  if (delta > 0)
+  {
+    money += (dmoney + aberrations/25) * delta;
+    aberrations += daberrations * delta;
+    subjects += dsubjects * delta;
+    lastupdate = time(NULL);
   }
 }
