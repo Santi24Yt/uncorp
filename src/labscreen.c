@@ -219,6 +219,25 @@ int labscreen()
     refresh();
     updatestats();
 
+    if (money < INT32_MIN)
+    {
+      return 2;
+    }
+    if (aberrations < INT32_MIN)
+    {
+      return 2;
+    }
+
+    if (stability < 0)
+    {
+      return 3;
+    }
+
+    if (houselvl >= 6)
+    {
+      return 4;
+    }
+
     savei++;
 
     if (savei == 1000)
