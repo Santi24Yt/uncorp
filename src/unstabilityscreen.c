@@ -9,6 +9,8 @@ int unstabilityscreen()
 
   printcenter(stdscr, "Ending 2/3 UNSTABILITY");
 
+  wdrawasset(stdscr, aberration, 5, 75);
+
   mvaddstr(SCREEN_H - 3, 2, "(n)ew game [remove all progress] (you can copy the gamesave to other directory to save it)");
 
   mvprintw(2, 2, "                      ");
