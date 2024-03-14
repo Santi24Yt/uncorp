@@ -108,21 +108,31 @@ void loop()
     }
 
 
-    exitf = titlescreen()
-      || labscreen();
+    exitf = titlescreen();
+
+    if (exitf == 0)
+    {
+      exitf = labscreen();
+    }
 
     switch (exitf-1)
     {
       /* overflow ending */
       case 1:
+        fendings = fendings | 0b001;
+        exitf = overflowscreen();
         break;
 
       /* unstability ending */
       case 2:
+        fendings = fendings | 0b010;
+        exitf = unstabilityscreen();
         break;
 
       /* maxhouse ending */
       case 3:
+        fendings = fendings | 0b100;
+        exitf = maxhousescreen();
         break;
     }
 
@@ -141,7 +151,7 @@ int dsubjects = 0;
 long lastupdate;
 int stability = 100;
 int houselvl = 0;
-int fendings;
+int fendings = 0;
 
 void loadprogr()
 {
@@ -170,6 +180,7 @@ void saveprogr()
   } else {
     fprintf(fp, "%lld %lld %d %d %d %d %d %d %d", aberrations, money, subjects, daberrations, dmoney, dsubjects, stability, houselvl, fendings);
   }
+  fclose(fp);
 }
 
 void updatestats()

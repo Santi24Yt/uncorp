@@ -71,6 +71,18 @@ int titlescreen();
 int labscreen();
 
 
+/* overflowscreen.c functions */
+int overflowscreen();
+
+
+/* unstabilityscreen.c functions */
+int unstabilityscreen();
+
+
+/* maxhousescreen.c functions */
+int maxhousescreen();
+
+
 /* global (? variables */
 extern long long aberrations;
 extern long long money;

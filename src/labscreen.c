@@ -191,8 +191,21 @@ int labscreen()
     mvwprintw(stats, 10, 2, "                     ");
     mvwprintw(stats, 10, 2, "House lvl: %d/6", houselvl);
     
+    int nendings = 0;
+    if ((fendings & 0b001) == 0b001)
+    {
+      nendings++;
+    }
+    if ((fendings & 0b010) == 0b010)
+    {
+      nendings++;
+    }
+    if ((fendings & 0b100) == 0b100)
+    {
+      nendings++;
+    }
     mvwprintw(stats, 18, 2, "                     ");
-    mvwprintw(stats, 18, 2, "Endings: %d/3", fendings);
+    mvwprintw(stats, 18, 2, "Endings: %d/3", nendings);
 
 
     mvwprintw(houseb, 3, 2, "                      ");
@@ -233,7 +246,7 @@ int labscreen()
       return 3;
     }
 
-    if (houselvl >= 6)
+    if (houselvl == 6)
     {
       return 4;
     }
